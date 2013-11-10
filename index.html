@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head> 
+<meta charset="UTF-8">
+<meta name="keywords" content="楽ロール,通販,インターネット通販,オンラインショッピング,楽天,楽天市場,rakuten,ラクテン,らくてん">
+<title>楽ス</title>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="jquery-slider/jquery.slider.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet" rel="stylesheet">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/handlebars.js"></script>
+<script type="text/javascript" src="jquery-slider/jquery.slider.min.js"></script>
+</head>
+<body>
+<div class="navbar"><div class="navbar-inner"><div class="container">
+<a class="brand" href="">楽ス</a>
+<ul class="nav">
+<li>
+<form id="searchForm" class="navbar-form pull-left">
+<select id="page">
+<option value="index.html" selected>楽天市場</option>
+<option value="books.html">楽天ブックス</option>
+<option value="auction.html">楽天オークション</option>
+</select>
+<span id="genreContents"></span>
+<script id="genre-template" type="text/x-handlebars-template">
+<select id="genreId" name="genreId">
+<option value="0">ジャンル未選択</option>
+{{#each children}}
+<option value="{{child.genreId}}">{{child.genreName}}</option>
+{{/each}}
+</select>
+</script>
+<input id="keyword" type="text" class="span2" name="keyword" placeholder="keyword" />
+<input id="searchButton" type="submit" class="btn" value="検索"/>
+</form>
+</li>
+</ul>
+
+</div></div></div>
+
+<div class="container">
+<div id="contents"></div>
+<script id="entry-template" type="text/x-handlebars-template">
+{{#if Items}}
+<div id="slider">
+{{#each Items}}
+	<div class="row">
+		<div class="span8">
+		<h2>{{asItemName Item.itemName}}</h2>
+		<input class="btn btn-primary" type="button" value="商品ページへ" onclick="window.open('{{Item.affiliateUrl}}');" />
+		</div>
+		<div class="span4">
+		{{#each Item.mediumImageUrls}}
+			{{#unless @index}}
+				<img src="{{asImageUrl imageUrl}}" style="max-width: 300px; max-height: 300px;" />
+			{{/unless}}
+		{{/each}}
+		</div>
+	</div>
+{{/each}}
+	<div class="row">
+		<div class="span8">
+		<h2>楽天市場</h2>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+{{else}}
+<div class="alert alert-error">
+該当する商品が存在しません。
+</div>
+{{/if}}
+</script>
+<br/>
+
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Frakuslide.appspot.com%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=366907766757211" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://rakuslide.appspot.com/" data-lang="ja">ツイート</a>
+<div class="g-plusone" data-size="medium" data-href="http://rakuslide.appspot.com/"></div>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div class="alert alert-info">
+<ul>
+<li>楽天の商品をスライドショーで表示します。</li>
+<li>初期表示は、ランキング上位を表示しています。</li>
+<li>検索テキストボックスから商品を検索できます。</li>
+<li>スライドにフォーカスを当てるとスクロールが停止します。</li>
+</ul>
+</div>
+
+
+<span style="font-size: xx-small;">
+Supported by <a target="_blank" href="http://webservice.rakuten.co.jp/">楽天ウェブサービス</a>
+© 2013 <a target="_blank" href="https://plus.google.com/u/0/104223720213351649227/posts?hl=ja">Tomofumi Chiba</a>
+</span>
+</div>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>
+

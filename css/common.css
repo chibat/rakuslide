@@ -1,0 +1,15 @@
+#slider {
+	margin: 0 auto;
+	width: 1000px;
+	height: 450px;
+	border: solid 1px #ccc;
+}
+
+#slider div {
+	padding: 50px 10px 0 10px;
+}
+
+body {
+	font-family: 'ƒƒCƒŠƒI', Meiryo, '‚l‚r ‚oƒSƒVƒbƒN', 'ƒqƒ‰ƒMƒmŠpƒS Pro W3',
+		'Hiragino Kaku Gothic Pro', sans-serif;
+}
